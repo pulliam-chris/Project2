@@ -9,6 +9,8 @@ Kaggle has a recent dataset of gathered US Auto Accidents.  The accident contain
 
 Then we plan to collect GEO JSON data on those high volume accident areas to make another visualization representing the start-end lat lngs for the accidents and representing them in neightborhood areas such as the Portland neighborhood information listed below.
 
+We also plan the factor in the severity of the accidents aligned with the neighborhoods or separately based on our analysis.
+
 
 US Accident Dataset (2016-2020, 4.2 million records)
 https://www.kaggle.com/sobhanmoosavi/us-accidents
@@ -16,6 +18,7 @@ Start Time
 End Time
 Start Lat Lng
 End Lat Lng
+Severity
 
 
 Possible Geo JSON (neighborhood files)
