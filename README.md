@@ -4,6 +4,7 @@ Members:
 Chris Pulliam
 Brienne Cole
 Patrice Woida
+Rylee Ahnen
 
 Kaggle has a recent dataset of gathered US Auto Accidents.  The accident contain Lat Lng location information so we plan to clean the data and make visualization clustering the accident markers to analyze high volume areas.
 
