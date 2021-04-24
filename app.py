@@ -35,6 +35,12 @@ def accidents():
 #    #return render_template("index.html", accidentinfo=accidentinfo)
 #    return redirect(url_for('index'), code=302)
 
+@app.route("/api/v1.0/census")
+def census():
+    dbinfo = mongo.db.census.find({}, {"_id": 0 })
+    censusinfo = jsonify(tuple(dbinfo))
+    #pp.pprint(accidentinfo)
+    return censusinfo
 
 if __name__ == "__main__":
     app.run(debug=True)
