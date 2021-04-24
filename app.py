@@ -1,46 +1,40 @@
-# Import our pymongo library, which lets us connect our Flask app to our Mongo database.
-import pymongo
+from flask import Flask, render_template, redirect, url_for, jsonify
 from flask_pymongo import PyMongo
-from flask import Flask, render_template, redirect, url_for
+#import plot
+import pprint
+import numpy as np
 
-
-# Create an instance of our Flask app.
 app = Flask(__name__)
 
-# Create connection variable
-app.config["MONGO_URI"] = "mongodb://localhost:27017/phone_app"
+# Use flask_pymongo to set up mongo connection
+app.config["MONGO_URI"] = "mongodb://localhost:27017/accidents_db"
 mongo = PyMongo(app)
 
-# Pass connection to the pymongo instance.
-client = pymongo.MongoClient(conn)
+# Or set inline
+# mongo = PyMongo(app, uri="mongodb://localhost:27017/accidents")
 
-# Connect to a database. Will create one if not already available.
-db = client.accident_db
-
-#iterate through data to import rows into MongoDB as seperate documents
+pp = pprint.PrettyPrinter(indent=4)
+accidentinfo = mongo.db.accidents.find( {} )
+pp.pprint(accidentinfo)
 
 @app.route("/")
 def index():
-#    accid = mongo.db.accidents.find_one()
-    return render_template("index.html")
-=======
-from flask import Flask, render_template, redirect, url_for, jsonify
-from flask_pymongo import PyMongo
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
-
-app = Flask(__name__)
-
-
-@app.route("/")
+    dbinfo = mongo.db.accidents.find({}, {"_id": 0 })
+    accidentinfo = jsonify(tuple(dbinfo))
+    #pp.pprint(accidentinfo)
+    return render_template("index.html", accidentinfo = accidentinfo)
 
 
 
+@app.route("/api/v1.0/accidents")
+def accidents():
+    dbinfo = mongo.db.accidents.find({}, {"_id": 0 })
+    accidentinfo = jsonify(tuple(dbinfo))
+    #pp.pprint(accidentinfo)
+    return accidentinfo
+#    #return render_template("index.html", accidentinfo=accidentinfo)
+#    return redirect(url_for('index'), code=302)
 
 
-#keep this at the bottom
 if __name__ == "__main__":
     app.run(debug=True)
->>>>>>> 89f8a952c05f83c1dfa15226889a6179f8ab2e37
