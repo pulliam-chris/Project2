@@ -20,7 +20,7 @@ const myMap = L.map("map", {
   //let jsondata = d3.json("portland_cleaned.json");
   //let accidents = jsondata;
   //accidents = accidents.data;
-  console.log(data);
+  //console.log(data);
   
   //  for (const accident in data) {
       //console.log(`${accident}: ${accident[5]}`);
@@ -41,9 +41,9 @@ const myMap = L.map("map", {
       let lat = data[i].Start_Lat;
       let lng = data[i].Start_Lng;
       let description = data[i].Description;
-      console.log(lat);
-      console.log(lng);
-      console.log(description);
+      //console.log(lat);
+      //console.log(lng);
+      //console.log(description);
   
       // Check for location property
       //if (location) {
