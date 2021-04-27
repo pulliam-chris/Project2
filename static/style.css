@@ -9,7 +9,8 @@ body {
     height: 100%;
   }
 
-  #container {
+#container {
+
     min-width: 310px;
     max-width: 800px;
     height: 400px;
@@ -56,4 +57,5 @@ body {
     background-color: #0051B4;
     color: white;
   }
-  
+
+
