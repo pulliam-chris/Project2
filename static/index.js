@@ -14,6 +14,15 @@ const myMap = L.map("map", {
     id: "mapbox/streets-v11",
     accessToken: API_KEY
   }).addTo(myMap);
+
+  let accidentHours = [];
+  let accidentHourCount = [];
+
+  // Build hours in day array
+  for(let j = 0; j<24; j++){
+    accidentHourCount[j] = 0;
+    accidentHours[j] = j;
+  }
   
   // Grab the data with d3
   d3.json("/api/v1.0/accidents").then(data => {
@@ -21,7 +30,6 @@ const myMap = L.map("map", {
   //let accidents = jsondata;
   //accidents = accidents.data;
   //console.log(data);
-  
   //  for (const accident in data) {
       //console.log(`${accident}: ${accident[5]}`);
       //accident = 
@@ -30,7 +38,10 @@ const myMap = L.map("map", {
   
     // Create a new marker cluster group
     const markers = L.markerClusterGroup();
-  
+   
+
+    //console.log(accidentHours);
+
     // Loop through data
     for (let i = 0; i < data.length; i++) {
       //console.log(data[i]);
@@ -44,20 +55,62 @@ const myMap = L.map("map", {
       //console.log(lat);
       //console.log(lng);
       //console.log(description);
-  
+      let weather = data[i].Weather_Condition;
+      
+      let time = new Date(data[i].Start_Time);
+      //let time = data[i].Start_Time;
+      time = time.getHours();
+      
+      accidentHourCount[time] += 1;
+      //console.log(weather);
+      //console.log(time);
+      
       // Check for location property
       //if (location) {
   
         // Add a new marker to the cluster group and bind a pop-up
         markers.addLayer(L.marker([lat, lng])
-          .bindPopup(description));
+          .bindPopup(`<strong>Weather: ${weather}<br>Description: ${description}</strong>`));
       }
   
     //}
-  
+    
+    console.log(accidentHourCount);
+    
+    let trace = [
+      {
+        x: accidentHours,
+        y: accidentHourCount,
+        type: 'bar'
+      }
+    ];
+
+    let layout = {
+      title: 'Accident by Hour of Day',
+      font:{
+        family: 'Raleway, sans-serif'
+      },
+      showlegend: false,
+      xaxis: {
+        // tickangle: -45,
+        title: "Hour (24-Hour Clock)",
+        dtick: 2
+      },
+      yaxis: {
+        //zeroline: false,
+        //gridwidth: 2
+        title: "Total Accidents"
+      },
+      bargap :0.05
+    };
+    
+    Plotly.newPlot('bar', trace, layout);
+
     // Add our marker cluster layer to the map
     myMap.addLayer(markers);
   
   });
+
+  
   
   
