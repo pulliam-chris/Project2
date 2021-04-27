@@ -42,5 +42,12 @@ def census():
     #pp.pprint(accidentinfo)
     return censusinfo
 
+@app.route("/api/v1.0/census/<year>")
+def census_year(year):
+    dbinfo = mongo.db.census.find({}, {"_id": 0, "Year": year, "Household Income": 1, "Median Age": 1, "Per Capita Income": 1, "Population" : 1, "Poverty Count" : 1, "Poverty Rate": 1, "Zipcode": 1})
+    censusinfo = jsonify(tuple(dbinfo))
+    #pp.pprint(accidentinfo)
+    return censusinfo
+
 if __name__ == "__main__":
     app.run(debug=True)
