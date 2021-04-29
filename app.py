@@ -19,11 +19,18 @@ pp.pprint(accidentinfo)
 
 @app.route("/")
 def index():
-    dbinfo = mongo.db.accidents.find({}, {"_id": 0 })
-    accidentinfo = jsonify(tuple(dbinfo))
+    #dbinfo = mongo.db.accidents.find({}, {"_id": 0 })
+    #accidentinfo = jsonify(tuple(dbinfo))
     #pp.pprint(accidentinfo)
     return render_template("index2.html", accidentinfo = accidentinfo)
 
+@app.route("/api/v1.0")
+def welcome():
+    """List all available api routes."""
+    return (
+        f"Available Routes:<br/>"
+        f"<a href='/api/v1.0/accidents'>accidents</a><br/>"
+        f"<a href='/api/v1.0/census'>census</a><br/>")
 
 
 @app.route("/api/v1.0/accidents")
