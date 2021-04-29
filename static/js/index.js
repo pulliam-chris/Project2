@@ -1,8 +1,21 @@
 // Declaring Luxon DateTime object
-const DateTime = luxon.DateTime
+const DateTime = luxon.DateTime;
 
 // Declare year for initial page load
-let year = "2016"
+let year = "2017";
+
+//const document = Document("index2.html");
+let button = d3.select(".button-group");
+
+//let button2017 = d3.select("#2017-btn");
+//let button2018 = d3.select("#2018-btn");
+//let button2019 = d3.select("#2019-btn");
+
+function init (year) {
+
+//let button2017 = d3.select("#2017-btn");
+//let button2018 = d3.select("#2018-btn");
+//let button2019 = d3.select("#2019-btn");
 
 // Arrays to capture accident data by hour
 let accidentHours = [];
@@ -153,7 +166,7 @@ Highcharts.chart('container', {
     text: 'Comparing Accident Counts to Median Age'
   },
   subtitle: {
-    text: 'Source: Accident Data Set and Census'
+    text: 'Source: Accident Data Set and Census by Portland Zipcode'
   },
   xAxis: [{
     categories: zipcodes,
@@ -229,7 +242,7 @@ Highcharts.chart('container2', {
     text: 'Comparing Accident Counts to Poverty Rate'
   },
   subtitle: {
-    text: 'Source: Accident Data Set and Census'
+    text: 'Source: Accident Data Set and Census by Portland Zipcode'
   },
   xAxis: [{
     categories: zipcodes,
@@ -299,3 +312,15 @@ Highcharts.chart('container2', {
 
 });
 });
+
+//Create event handlers
+//document.getElementByClass(".button-group").addEventListener("click", init(2018));
+button.on("click", console.log(button.value));
+//button2018.on("click", init(button2018.value));
+//button2019.on("click", init(button2019.value));
+
+}
+
+init(year);
+
+
