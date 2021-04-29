@@ -22,7 +22,7 @@ def index():
     dbinfo = mongo.db.accidents.find({}, {"_id": 0 })
     accidentinfo = jsonify(tuple(dbinfo))
     #pp.pprint(accidentinfo)
-    return render_template("index.html", accidentinfo = accidentinfo)
+    return render_template("index2.html", accidentinfo = accidentinfo)
 
 
 
