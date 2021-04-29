@@ -14,8 +14,8 @@
     min-width: 310px;
     max-width: 800px;
     height: 400px;
-    margin: 0 auto
-  }
+    margin: 0 auto;
+}
   
   .buttons {
     min-width: 310px;
@@ -10156,6 +10156,4 @@ header.masthead .bg-circle-4 {
   header.masthead .masthead-content .masthead-subheading {
     font-size: 4rem;
   }
-}
-
 
