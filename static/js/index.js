@@ -4,8 +4,15 @@ const DateTime = luxon.DateTime;
 // Declare year for initial page load
 let year = "2017";
 
+// Creating Leaflet map object
+let myMap = L.map("map", {
+  //Portland 45.5051° N, 122.6750° W
+  center: [45.5051, -122.6750],
+  zoom: 11
+});
+
 //const document = Document("index2.html");
-let button = d3.select(".button-group");
+//let button = d3.select("#button");
 
 //let button2017 = d3.select("#2017-btn");
 //let button2018 = d3.select("#2018-btn");
@@ -23,13 +30,6 @@ let accidentHourCount = [];
 
 let zipcodeAccidents = [];
 let zipcodeAccidentCount =[];
-
-// Creating Leaflet map object
-const myMap = L.map("map", {
-    //Portland 45.5051° N, 122.6750° W
-    center: [45.5051, -122.6750],
-    zoom: 11
-  });
   
   // Adding tile layer to the map
   L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
@@ -73,15 +73,16 @@ const myMap = L.map("map", {
         //let index = zipcodeAccidents.indexOf(zip);
         zipcodeAccidentCount[zipcodeAccidents.indexOf(zip)] += 1;
       }
-
-      
-      
-            
+                  
       // Capture time for accident by hour plot using Luxon library
       let time = DateTime.fromSQL(accident.Start_Time, {zone: "America/Los_Angeles" });
-            
-      // Increment the count for that hour
-      accidentHourCount[time.hour] += 1;
+      
+      // Only tabulate for selected year
+      if(time.year === year) {
+        // Increment the count for that hour
+        console.log(year)
+        accidentHourCount[time.hour] += 1;
+      }
       
       // Add a new marker to the cluster group and bind a pop-up
       markers.addLayer(L.marker([lat, lng])
@@ -98,7 +99,7 @@ const myMap = L.map("map", {
     ];
 
     let layout = {
-      title: 'Accident by Hour of Day',
+      title: `Accident by Hour of Day ${year}`,
       font:{
         family: 'Raleway, sans-serif'
       },
@@ -163,7 +164,7 @@ Highcharts.chart('container', {
     zoomType: 'xy'
   },
   title: {
-    text: 'Comparing Accident Counts to Median Age'
+    text: `Accident Counts to Median Age ${year}`
   },
   subtitle: {
     text: 'Source: Accident Data Set and Census by Portland Zipcode'
@@ -239,7 +240,7 @@ Highcharts.chart('container2', {
     zoomType: 'xy'
   },
   title: {
-    text: 'Comparing Accident Counts to Poverty Rate'
+    text: `Accident Counts to Poverty Rate ${year}`
   },
   subtitle: {
     text: 'Source: Accident Data Set and Census by Portland Zipcode'
@@ -314,8 +315,8 @@ Highcharts.chart('container2', {
 });
 
 //Create event handlers
-//document.getElementByClass(".button-group").addEventListener("click", init(2018));
-button.on("click", console.log(button.value));
+//document.getElementByID("button").addEventListener("click", init(button.value));
+//button.on("click", console.log(button.value));
 //button2018.on("click", init(button2018.value));
 //button2019.on("click", init(button2019.value));
 
