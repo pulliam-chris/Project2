@@ -2,7 +2,7 @@
 const DateTime = luxon.DateTime;
 
 // Declare year for initial page load
-let year = "2017";
+let year = 2017;
 
 // Creating Leaflet map object
 let myMap = L.map("map", {
@@ -86,7 +86,7 @@ let zipcodeAccidentCount =[];
       
       // Add a new marker to the cluster group and bind a pop-up
       markers.addLayer(L.marker([lat, lng])
-        .bindPopup(`<strong>Weather: ${weather}<br>Description: ${description}</strong>`));
+        .bindPopup(`<strong>Time: ${time}<br>Weather: ${weather}<br>Description: ${description}</strong>`));
       });
     
     // Create plot based on arrays    
