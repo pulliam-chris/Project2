@@ -80,13 +80,13 @@ let zipcodeAccidentCount =[];
       // Only tabulate for selected year
       if(time.year === year) {
         // Increment the count for that hour
-        console.log(year)
+        //console.log(year)
         accidentHourCount[time.hour] += 1;
       }
       
       // Add a new marker to the cluster group and bind a pop-up
       markers.addLayer(L.marker([lat, lng])
-        .bindPopup(`<strong>Time: ${time}<br>Weather: ${weather}<br>Description: ${description}</strong>`));
+        .bindPopup(`<strong>${time.toLocaleString(DateTime.DATETIME_HUGE)}</strong><br>Weather: ${weather}<br>Description: ${description}</strong>`));
       });
     
     // Create plot based on arrays    
@@ -198,13 +198,13 @@ Highcharts.chart('container', {
     title: {
       text: 'Median Age',
       style: {
-        color: Highcharts.getOptions().colors[0]
+        color: Highcharts.getOptions().colors[5]
       }
     },
     labels: {
       format: '{value}',
       style: {
-        color: Highcharts.getOptions().colors[0]
+        color: Highcharts.getOptions().colors[5]
       }
     },
     opposite: true
@@ -227,7 +227,8 @@ Highcharts.chart('container', {
     name: 'Median Age',
     type: 'column',
     yAxis: 1,
-    data: medAge
+    data: medAge,
+    color: Highcharts.getOptions().colors[5]
     //tooltip: {
       //valueSuffix: 'Age in Years'
     //}
@@ -236,7 +237,8 @@ Highcharts.chart('container', {
   , {
     name: 'Accident Count',
     type: 'spline',
-    data: accidentCount
+    data: accidentCount,
+    color: Highcharts.getOptions().colors[1]
     //tooltip: {
       //valueSuffix: 'Distinct Count'
     //}
@@ -274,13 +276,13 @@ Highcharts.chart('container2', {
     title: {
       text: 'Poverty Rate',
       style: {
-        color: Highcharts.getOptions().colors[0]
+        color: Highcharts.getOptions().colors[5]
       }
     },
     labels: {
       format: '{value} %',
       style: {
-        color: Highcharts.getOptions().colors[0]
+        color: Highcharts.getOptions().colors[5]
       }
     },
     opposite: true
@@ -303,7 +305,8 @@ Highcharts.chart('container2', {
     name: 'Poverty Rate',
     type: 'column',
     yAxis: 1,
-    data: povertyRate
+    data: povertyRate,
+    color: Highcharts.getOptions().colors[5]
     //tooltip: {
       //valueSuffix: 'Age in Years'
     //}
@@ -312,7 +315,8 @@ Highcharts.chart('container2', {
   , {
     name: 'Accident Count',
     type: 'spline',
-    data: accidentCount
+    data: accidentCount,
+    color: Highcharts.getOptions().colors[1]
     //tooltip: {
       //valueSuffix: 'Distinct Count'
     //}
