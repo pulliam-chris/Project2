@@ -94,7 +94,14 @@ let zipcodeAccidentCount =[];
       {
         x: accidentHours,
         y: accidentHourCount,
-        type: 'bar'
+        type: 'bar',
+        marker: {
+          color: '#ff6a00',
+          //opacity: 0.6,
+          //line: {
+          //  color: 'rgb(8,48,107)',
+          //  width: 1.5
+          }
       }
     ];
 
@@ -111,7 +118,8 @@ let zipcodeAccidentCount =[];
       yaxis: {
         title: "Total Accidents"
       },
-      bargap :0.05
+      bargap :0.05,
+
     };
     
     Plotly.newPlot('bar', trace, layout);
