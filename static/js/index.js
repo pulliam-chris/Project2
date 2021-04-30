@@ -88,9 +88,23 @@ function init (year) {
     
       // Create Plotly Accident by hour figure    
       // Plotly data
+
+      // Create hour labels for X Axis
+      let militaryTime = [];
+      for(let j = 0; j<24; j++) {
+        let timeLabel;
+        if(j < 10) {
+          timeLabel = `0${j}:00`;
+        }
+        else{
+          timeLabel = `${j}:00`;
+        }
+        militaryTime.push(timeLabel);
+      }
+
       let trace = [
       {
-        x: accidentHours,
+        x: militaryTime,
         y: accidentHourCount,
         type: 'bar',
         marker: {
