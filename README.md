@@ -44,7 +44,7 @@ Census Data
 
 
 Visualization sources:
-Highcharts : https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/combo-dual-axes
-Bootstrap website layout: https://startbootstrap.com/previews/one-page-wonder
-Luxon: https://moment.github.io/luxon/
+ - Highcharts : https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/combo-dual-axes
+ - Bootstrap website layout: https://startbootstrap.com/previews/one-page-wonder
+ - Luxon: https://moment.github.io/luxon/
 
