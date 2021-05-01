@@ -1,0 +1,692 @@
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   accidents.ipynb
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .ipynb_checkpoints/
+        __pycache__/
+        data/US_Accidents_Dec20.csv
+        data/most_recent.csv
+        data/portland_cleaned.csv
+        data/portland_cleaned_original.csv
+        plot.py
+        portland_annual_accidents.json
+        static/js/highcharts.js
+        templates/index_markers.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   accidents.ipynb
+        modified:   static/js/index.js
+        modified:   templates/index2.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .ipynb_checkpoints/
+        __pycache__/
+        data/US_Accidents_Dec20.csv
+        data/most_recent.csv
+        data/portland_cleaned.csv
+        data/portland_cleaned_original.csv
+        plot.py
+        portland_annual_accidents.json
+        static/js/highcharts.js
+        templates/index_markers.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git add static/js/index.js
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git add templates.index2.html
+fatal: pathspec 'templates.index2.html' did not match any files
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git add templates/index2.html
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git commit -m "spacing and color tweaks on homepage"
+[main 09e4541] spacing and color tweaks on homepage
+ 2 files changed, 27 insertions(+), 23 deletions(-)
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git push
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 880 bytes | 146.00 KiB/s, done.
+Total 7 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+To github.com:pulliam-chris/Project2.git
+   235299b..09e4541  main -> main
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm static/js/luxon.js
+rm 'static/js/luxon.js'
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git commit -m "removing non-minified version of luxon.js"
+[main 3aa413b] removing non-minified version of luxon.js
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 static/js/luxon.js
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 430 bytes | 215.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:pulliam-chris/Project2.git
+   09e4541..3aa413b  main -> main
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   accidents.ipynb
+        modified:   templates/index2.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .ipynb_checkpoints/
+        __pycache__/
+        data/US_Accidents_Dec20.csv
+        data/most_recent.csv
+        data/portland_cleaned.csv
+        data/portland_cleaned_original.csv
+        plot.py
+        portland_annual_accidents.json
+        static/css/
+        static/js/highcharts.js
+        templates/index_markers.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git add templates/index2.html
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git add static/css/*
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm static/style.css
+rm 'static/style.css'
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm static/koala.JPEG
+fatal: pathspec 'static/koala.JPEG' did not match any files
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm static/koala
+fatal: pathspec 'static/koala' did not match any files
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm static/koala.jpg
+fatal: pathspec 'static/koala.jpg' did not match any files
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm static/koala.JPG
+fatal: pathspec 'static/koala.JPG' did not match any files
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm static/koala.jpeg
+rm 'static/koala.jpeg'
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git commit -m "moving style file into css folder and removing koala jpeg"
+[main dfd916b] moving style file into css folder and removing koala jpeg
+ 3 files changed, 1 insertion(+), 1 deletion(-)
+ rename static/{ => css}/style.css (100%)
+ delete mode 100644 static/koala.jpeg
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git push
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 553 bytes | 553.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:pulliam-chris/Project2.git
+   3aa413b..dfd916b  main -> main
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm logic.js
+rm 'logic.js'
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git commit -m "removing original logic.js file from creating marker clusters"
+[main 71b5057] removing original logic.js file from creating marker clusters
+ 1 file changed, 62 deletions(-)
+ delete mode 100644 logic.js
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git push
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 265 bytes | 132.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:pulliam-chris/Project2.git
+   dfd916b..71b5057  main -> main
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm data
+fatal: not removing 'data' recursively without -r
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm r data
+fatal: pathspec 'r' did not match any files
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm -r data
+rm 'data/portland_cleaned.json'
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git commit -m "removing old data folder since records pushed directly to mongo"
+[main 6250ca9] removing old data folder since records pushed directly to mongo
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 data/portland_cleaned.json
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git push
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 265 bytes | 132.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:pulliam-chris/Project2.git
+   71b5057..6250ca9  main -> main
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   accidents.ipynb
+        modified:   templates/index2.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .ipynb_checkpoints/
+        __pycache__/
+        accident_data/
+        data/
+        plot.py
+        portland_annual_accidents.json
+        static/js/highcharts.js
+        templates/index_markers.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git add templates/index2.html
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git add accident_data/accidents.ipynb
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm accidents.ipynb
+error: the following file has local modifications:
+    accidents.ipynb
+(use --cached to keep the file, or -f to force removal)
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm -f accidents.ipynb
+rm 'accidents.ipynb'
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm static/config.js
+fatal: pathspec 'static/config.js' did not match any files
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm static/js/config.js
+rm 'static/js/config.js'
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm static/js/highcharts.js
+fatal: pathspec 'static/js/highcharts.js' did not match any files
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm static/js/highcharts.js
+fatal: pathspec 'static/js/highcharts.js' did not match any files
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm static/js/logic.js
+rm 'static/js/logic.js'
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git add accident_data/data/*
+warning: CRLF will be replaced by LF in accident_data/data/Kaggle_Accident_CSV.txt.
+The file will have its original line endings in your working directory
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git commit -m "removing old JS files and creating accident_data folder"
+[main 4931e9e] removing old JS files and creating accident_data folder
+ 5 files changed, 34 insertions(+), 90 deletions(-)
+ rename accidents.ipynb => accident_data/accidents.ipynb (99%)
+ create mode 100644 accident_data/data/Kaggle_Accident_CSV.txt
+ delete mode 100644 static/js/config.js
+ delete mode 100644 static/js/logic.js
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git push
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (10/10), 10.48 KiB | 894.00 KiB/s, done.
+Total 10 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:pulliam-chris/Project2.git
+   6250ca9..4931e9e  main -> main
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   static/js/index.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .ipynb_checkpoints/
+        __pycache__/
+        data/
+        plot.py
+        portland_annual_accidents.json
+        static/js/config.js
+        static/js/highcharts.js
+        templates/index_markers.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git add static/js/index.js
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git commit -m "cleaned code and fixed issue for zipcode accident counts only within selected year"
+[main f302922] cleaned code and fixed issue for zipcode accident counts only within selected year
+ 1 file changed, 290 insertions(+), 339 deletions(-)
+ rewrite static/js/index.js (75%)
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git push
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 1.66 KiB | 565.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:pulliam-chris/Project2.git
+   4931e9e..f302922  main -> main
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   static/js/index.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .ipynb_checkpoints/
+        __pycache__/
+        data/
+        plot.py
+        portland_annual_accidents.json
+        static/js/config.js
+        static/js/highcharts.js
+        templates/index_markers.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git add static/js/index.js
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git commit -m "created hour labels for plotly bar graph"
+[main d256c64] created hour labels for plotly bar graph
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git push
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 630 bytes | 315.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:pulliam-chris/Project2.git
+   f302922..d256c64  main -> main
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   app.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .ipynb_checkpoints/
+        __pycache__/
+        data/
+        plot.py
+        portland_annual_accidents.json
+        static/js/config.js
+        static/js/highcharts.js
+        templates/index_markers.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git add app.py
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git commit -m "cleaned flask file and added instructions on endpoints"
+[main a7721bb] cleaned flask file and added instructions on endpoints
+ 1 file changed, 5 insertions(+), 16 deletions(-)
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 529 bytes | 529.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:pulliam-chris/Project2.git
+   d256c64..a7721bb  main -> main
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git rm templates/index.html
+rm 'templates/index.html'
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git commit -m "removing old basic html homepage since index2 is programmed in flask"
+[main f6f2914] removing old basic html homepage since index2 is programmed in flask
+ 1 file changed, 83 deletions(-)
+ delete mode 100644 templates/index.html
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 339 bytes | 339.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:pulliam-chris/Project2.git
+   a7721bb..f6f2914  main -> main
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ cd ..
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp
+$ conda create -n Project2 python=3.6
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.9.2
+  latest version: 4.10.1
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: C:\Users\mrpar\.conda\envs\Project2
+
+  added / updated specs:
+    - python=3.6
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    pip-21.0.1                 |   py36haa95532_0         1.8 MB
+    python-3.6.13              |       h3758d61_0        14.6 MB
+    setuptools-52.0.0          |   py36haa95532_0         723 KB
+    sqlite-3.35.4              |       h2bbff1b_0         761 KB
+    vc-14.2                    |       h21ff451_1           8 KB
+    vs2015_runtime-14.27.29016 |       h5e58377_2        1007 KB
+    wheel-0.36.2               |     pyhd3eb1b0_0          33 KB
+    ------------------------------------------------------------
+                                           Total:        18.9 MB
+
+The following NEW packages will be INSTALLED:
+
+  certifi            pkgs/main/win-64::certifi-2020.12.5-py36haa95532_0
+  pip                pkgs/main/win-64::pip-21.0.1-py36haa95532_0
+  python             pkgs/main/win-64::python-3.6.13-h3758d61_0
+  setuptools         pkgs/main/win-64::setuptools-52.0.0-py36haa95532_0
+  sqlite             pkgs/main/win-64::sqlite-3.35.4-h2bbff1b_0
+  vc                 pkgs/main/win-64::vc-14.2-h21ff451_1
+  vs2015_runtime     pkgs/main/win-64::vs2015_runtime-14.27.29016-h5e58377_2
+  wheel              pkgs/main/noarch::wheel-0.36.2-pyhd3eb1b0_0
+  wincertstore       pkgs/main/win-64::wincertstore-0.2-py36h7fe50ca_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+vs2015_runtime-14.27 | 1007 KB   | ############################################################################ | 100%
+pip-21.0.1           | 1.8 MB    | ############################################################################ | 100%
+python-3.6.13        | 14.6 MB   | ############################################################################ | 100%
+wheel-0.36.2         | 33 KB     | ############################################################################ | 100%
+setuptools-52.0.0    | 723 KB    | ############################################################################ | 100%
+vc-14.2              | 8 KB      | ############################################################################ | 100%
+sqlite-3.35.4        | 761 KB    | ############################################################################ | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate Project2
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+(base)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp
+$ conda activate Project2
+(Project2)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp
+$ pip install pymongo
+Collecting pymongo
+  Downloading pymongo-3.11.3-cp36-cp36m-win_amd64.whl (382 kB)
+     |████████████████████████████████| 382 kB 3.3 MB/s
+Installing collected packages: pymongo
+Successfully installed pymongo-3.11.3
+(Project2)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp
+$ pip install Flask
+Collecting Flask
+  Using cached Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+Collecting itsdangerous>=0.24
+  Using cached itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+Collecting Jinja2>=2.10.1
+  Downloading Jinja2-2.11.3-py2.py3-none-any.whl (125 kB)
+     |████████████████████████████████| 125 kB 3.3 MB/s
+Collecting click>=5.1
+  Using cached click-7.1.2-py2.py3-none-any.whl (82 kB)
+Collecting Werkzeug>=0.15
+  Using cached Werkzeug-1.0.1-py2.py3-none-any.whl (298 kB)
+Collecting MarkupSafe>=0.23
+  Downloading MarkupSafe-1.1.1-cp36-cp36m-win_amd64.whl (16 kB)
+Installing collected packages: MarkupSafe, Werkzeug, Jinja2, itsdangerous, click, Flask
+Successfully installed Flask-1.1.2 Jinja2-2.11.3 MarkupSafe-1.1.1 Werkzeug-1.0.1 click-7.1.2 itsdangerous-1.1.0
+(Project2)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp
+$ cd Project2
+(Project2)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ Python app.py
+Traceback (most recent call last):
+  File "app.py", line 2, in <module>
+    from flask_pymongo import PyMongo
+ModuleNotFoundError: No module named 'flask_pymongo'
+(Project2)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ pip install Flask-PyMongo
+Collecting Flask-PyMongo
+  Using cached Flask_PyMongo-2.3.0-py2.py3-none-any.whl (12 kB)
+Requirement already satisfied: Flask>=0.11 in c:\users\mrpar\.conda\envs\project2\lib\site-packages (from Flask-PyMongo) (1.1.2)
+Requirement already satisfied: PyMongo>=3.3 in c:\users\mrpar\.conda\envs\project2\lib\site-packages (from Flask-PyMongo) (3.11.3)
+Requirement already satisfied: Jinja2>=2.10.1 in c:\users\mrpar\.conda\envs\project2\lib\site-packages (from Flask>=0.11->Flask-PyMongo) (2.11.3)
+Requirement already satisfied: click>=5.1 in c:\users\mrpar\.conda\envs\project2\lib\site-packages (from Flask>=0.11->Flask-PyMongo) (7.1.2)
+Requirement already satisfied: itsdangerous>=0.24 in c:\users\mrpar\.conda\envs\project2\lib\site-packages (from Flask>=0.11->Flask-PyMongo) (1.1.0)
+Requirement already satisfied: Werkzeug>=0.15 in c:\users\mrpar\.conda\envs\project2\lib\site-packages (from Flask>=0.11->Flask-PyMongo) (1.0.1)
+Requirement already satisfied: MarkupSafe>=0.23 in c:\users\mrpar\.conda\envs\project2\lib\site-packages (from Jinja2>=2.10.1->Flask>=0.11->Flask-PyMongo) (1.1.1)
+Installing collected packages: Flask-PyMongo
+Successfully installed Flask-PyMongo-2.3.0
+(Project2)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ Python app.py
+Traceback (most recent call last):
+  File "app.py", line 4, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+(Project2)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ conda install numpy
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.9.2
+  latest version: 4.10.1
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: C:\Users\mrpar\.conda\envs\Project2
+
+  added / updated specs:
+    - numpy
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    intel-openmp-2021.2.0      |     haa95532_616         1.8 MB
+    mkl-service-2.3.0          |   py36h196d8e1_0          45 KB
+    mkl_fft-1.3.0              |   py36h46781fe_0         131 KB
+    numpy-1.19.2               |   py36hadc3359_0          22 KB
+    numpy-base-1.19.2          |   py36ha3acd2a_0         3.8 MB
+    six-1.15.0                 |   py36haa95532_0          27 KB
+    ------------------------------------------------------------
+                                           Total:         5.9 MB
+
+The following NEW packages will be INSTALLED:
+
+  blas               pkgs/main/win-64::blas-1.0-mkl
+  intel-openmp       pkgs/main/win-64::intel-openmp-2021.2.0-haa95532_616
+  mkl                pkgs/main/win-64::mkl-2020.2-256
+  mkl-service        pkgs/main/win-64::mkl-service-2.3.0-py36h196d8e1_0
+  mkl_fft            pkgs/main/win-64::mkl_fft-1.3.0-py36h46781fe_0
+  mkl_random         pkgs/main/win-64::mkl_random-1.1.1-py36h47e9c7a_0
+  numpy              pkgs/main/win-64::numpy-1.19.2-py36hadc3359_0
+  numpy-base         pkgs/main/win-64::numpy-base-1.19.2-py36ha3acd2a_0
+  six                pkgs/main/win-64::six-1.15.0-py36haa95532_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+mkl-service-2.3.0    | 45 KB     | ############################################################################ | 100%
+numpy-base-1.19.2    | 3.8 MB    | ############################################################################ | 100%
+intel-openmp-2021.2. | 1.8 MB    | ############################################################################ | 100%
+mkl_fft-1.3.0        | 131 KB    | ############################################################################ | 100%
+six-1.15.0           | 27 KB     | ############################################################################ | 100%
+numpy-1.19.2         | 22 KB     | ############################################################################ | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(Project2)
+mrpar@DESKTOP-AVBVMNC MINGW64 ~/Documents/bootcamp/Project2 (main)
+$ Python app.py
+<pymongo.cursor.Cursor object at 0x000002DE04E19278>
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Restarting with stat
+<pymongo.cursor.Cursor object at 0x000001B652959208>
+ * Debugger is active!
+ * Debugger PIN: 758-475-409
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [30/Apr/2021 16:59:47] "←[37mGET / HTTP/1.1←[0m" 200 -
+127.0.0.1 - - [30/Apr/2021 16:59:48] "←[37mGET /api/v1.0/accidents HTTP/1.1←[0m" 200 -
+127.0.0.1 - - [30/Apr/2021 16:59:49] "←[37mGET /api/v1.0/census HTTP/1.1←[0m" 200 -
+127.0.0.1 - - [30/Apr/2021 16:59:54] "←[37mGET /api/v1.0/accidents HTTP/1.1←[0m" 200 -
+127.0.0.1 - - [30/Apr/2021 16:59:55] "←[37mGET /api/v1.0/census HTTP/1.1←[0m" 200 -
+127.0.0.1 - - [30/Apr/2021 16:59:56] "←[37mGET /api/v1.0/accidents HTTP/1.1←[0m" 200 -
+127.0.0.1 - - [30/Apr/2021 16:59:57] "←[37mGET /api/v1.0/census HTTP/1.1←[0m" 200 -
+127.0.0.1 - - [30/Apr/2021 16:59:59] "←[37mGET /api/v1.0/accidents HTTP/1.1←[0m" 200 -
+127.0.0.1 - - [30/Apr/2021 17:00:00] "←[37mGET /api/v1.0/census HTTP/1.1←[0m" 200 -
