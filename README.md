@@ -44,9 +44,9 @@ https://gis-pdx.opendata.arcgis.com/datasets/neighborhood-boundaries?geometry=-1
  - See: https://gist.github.com/afhaque/60558290d6efd892351c4b64e5c01e9b for labels
 
 ### Citing our visualization resources:
-- Highcharts : https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/combo-dual-axes
+- Highcharts JS: https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/combo-dual-axes
 - Bootstrap template : https://startbootstrap.com/previews/one-page-wonder
-- Luxon library : https://moment.github.io/luxon/
+- Luxon JS library : https://moment.github.io/luxon/
 
 ### Importing data from Jupyter Notebook into MongoDB
 *Accident Data*
