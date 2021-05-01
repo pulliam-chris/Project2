@@ -34,25 +34,26 @@ https://gis-pdx.opendata.arcgis.com/datasets/neighborhood-boundaries?geometry=-1
 ## To run this page, you must follow the steps below:
 1) Run the requirements.txt file to create the necessary enviromnent
 2) Clone this repository and pull down the files and folders 
-3) Go to the Kaggle website (link posted below) and download and save the US_Accidents_Dec20.csv to the Data folder
+3) Go to the Kaggle website (link posted below) and download and save the US_Accidents_Dec20.csv to the accident_data\data folder
   https://www.kaggle.com/sobhanmoosavi/us-accidents
 4) Request a census.gov api key
-5) Create a config.js file and copy your API key to that file
+5) Create a config.py file and copy your API key to that file
 6) ** not sure how to retrieve and convert the census data**
 7) Download MongoDB Compass
   https://www.mongodb.com/try/download/compass
 8) Run the jupyter notebook
 9) Run the app.py file in your your terminal
-10) VOILA!!
+10) Request a mapbox api key for Leaflet ploting  https://account.mapbox.com/
+11) Add that API_KEY to a static/js/config.js file
 
 ### Census data 
  - See: https://github.com/datamade/census for library documentation
  - See: https://gist.github.com/afhaque/60558290d6efd892351c4b64e5c01e9b for labels
 
 ### Citing our visualization resources:
-- Highcharts : https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/combo-dual-axes
+- Highcharts JS : https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/combo-dual-axes
 - Bootstrap template : https://startbootstrap.com/previews/one-page-wonder
-- Luxon library : https://moment.github.io/luxon/
+- Luxon JS (DateTime) library : https://moment.github.io/luxon/
 
 ### Importing data from Jupyter Notebook into MongoDB
 *Accident Data*
