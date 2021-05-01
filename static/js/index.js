@@ -1,13 +1,27 @@
-const DateTime = luxon.DateTime
+// Declaring Luxon JS Library DateTime object
+const DateTime = luxon.DateTime;
 
-// Creating map object
-const myMap = L.map("map", {
-    //Portland 45.5051° N, 122.6750° W
-    center: [45.5051, -122.6750],
-    zoom: 11
-  });
+// Declare a year for initial page load
+let year = 2017;
+
+// Creating Leaflet map object
+let myMap = L.map("map", {
+  //Portland 45.5051° N, 122.6750° W
+  center: [45.5051, -122.6750],
+  zoom: 11
+});
+
+function init (year) {
+
+  // Arrays to capture accident data by hour
+  let accidentHours = [];
+  let accidentHourCount = [];
+
+  // Arrays to capture accident data by zipcode
+  let zipcodeAccidents = [];
+  let zipcodeAccidentCount =[];
   
-  // Adding tile layer to the map
+  // Adding tile layer to the leaflet map
   L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
     tileSize: 512,
@@ -17,399 +31,274 @@ const myMap = L.map("map", {
     accessToken: API_KEY
   }).addTo(myMap);
 
-  let accidentHours = [];
-  let accidentHourCount = [];
-
-  // Build hours in day array
-  for(let j = 0; j<24; j++){
-    accidentHourCount[j] = 0;
-    accidentHours[j] = j;
+  // Build hours in day array and set default counts
+  for(let i = 0; i<24; i++){
+    accidentHourCount[i] = 0;
+    accidentHours[i] = i;
   }
   
-  // Grab the data with d3
-  d3.json("/api/v1.0/accidents").then(data => {
-  //let jsondata = d3.json("portland_cleaned.json");
-  //let accidents = jsondata;
-  //accidents = accidents.data;
-  //console.log(data);
-  //  for (const accident in data) {
-      //console.log(`${accident}: ${accident[5]}`);
-      //accident = 
-      //console.log(accident);
-    //}
-  
+  // Grab the accident data with d3 and local API call
+  d3.json("/api/v1.0/accidents").then(adata => {
+    
     // Create a new marker cluster group
     const markers = L.markerClusterGroup();
    
-
-    //console.log(accidentHours);
-
-    // Loop through data
-    for (let i = 0; i < data.length; i++) {
-      //console.log(data[i]);
-      // Set the data location property to a variable
-      //const accident = data[i] ;
-      //accidents.forEach(accident => console.log(accident));
-      //console.log(accident);
-      let lat = data[i].Start_Lat;
-      let lng = data[i].Start_Lng;
-      let description = data[i].Description;
-      //console.log(lat);
-      //console.log(lng);
-      //console.log(description);
-      let weather = data[i].Weather_Condition;
-      
-      //luxon.DateTime
-      let time = DateTime.fromSQL(data[i].Start_Time, {zone: "America/Los_Angeles" });
-      //let newtime = DateTime.fromHTTP(data[i].Start_Time,  { zone: "America/Los_Angeles" });
-      //console.log(data[i].Start_Time)
-      //console.log(time.hour);
-      //let time = data[i].Start_Time;
-      //time = fromJSDate(time, "PST");
-      //newtime = newtime.getHours();
-      
-      accidentHourCount[time.hour] += 1;
-      //console.log(weather);
-      
-      
-      // Check for location property
-      //if (location) {
-  
-        // Add a new marker to the cluster group and bind a pop-up
-        markers.addLayer(L.marker([lat, lng])
-          .bindPopup(`<strong>Weather: ${weather}<br>Description: ${description}</strong>`));
-      }
-  
-    //}
+    // Loop through the accident data
+    adata.forEach(accident => {
     
-    //console.log(accidentHourCount);
-    
-    let trace = [
-      {
-        x: accidentHours,
-        y: accidentHourCount,
-        type: 'bar'
-      }
-    ];
+      // Grab data for plotting and markers
+      let lat = accident.Start_Lat;
+      let lng = accident.Start_Lng;
+      let description = accident.Description;
+      let weather = accident.Weather_Condition;
 
-    let layout = {
-      title: 'Accident by Hour of Day',
-      font:{
-        family: 'Raleway, sans-serif'
-      },
-      showlegend: false,
-      xaxis: {
-        // tickangle: -45,
-        title: "Hour (24-Hour Clock)",
-        dtick: 2
-      },
-      yaxis: {
-        //zeroline: false,
-        //gridwidth: 2
-        title: "Total Accidents"
-      },
-      bargap :0.05
-    };
-    
-    Plotly.newPlot('bar', trace, layout);
+      // Capture the zipcode for
+      let zip = Number(accident.Zipcode);
 
-    // Add our marker cluster layer to the map
-    myMap.addLayer(markers);
-  
-  });
+      // Capture time for accident by hour plot using Luxon library
+      let time = DateTime.fromSQL(accident.Start_Time, {zone: "America/Los_Angeles" });
 
-// Highcharts section
- /*  
-let year2016 = [];
-  let year2017 = [];
-  let year2018 = [];
-  let year2019 = [];
-  
-
-  d3.json("c:\portland_annual_accidents.json").then(data => {
-    temp  = [entry.Zipcode, entry.counts];
-
-    data.ForEach(entry => {
-      console.log(entry)
-      if (entry.Start_Time === "2016") {
-        year2016.push([temp])
-      }
-      else if (entry.Start_Time === "2017") {
-        year2017.push([temp])
-      }
-      else if (entry.Start_Time === "2018") {
-        year2018.push([temp])
-      }
-      else if (entry.Start_Time === "2019") {
-        year2019.push([temp])
-      }
-      else {}
-      
-    })
-    dataPrev = [year2016,year2017,year2018,year2019]
-    console.log(dataPrev) 
-})
-
-
- 
-  var dataPrev = {
-    2016: [
-      ['South Korea', 0],
-      ['Japan', 0],
-      ['Australia', 0],
-      ['Germany', 11],
-      ['Russia', 24],
-      ['China', 38],
-      ['Great Britain', 29],
-      ['United States', 46]
-    ],
-    2012: [
-      ['South Korea', 13],
-      ['Japan', 0],
-      ['Australia', 0],
-      ['Germany', 0],
-      ['Russia', 22],
-      ['China', 51],
-      ['Great Britain', 19],
-      ['United States', 36]
-    ],
-    2008: [
-      ['South Korea', 0],
-      ['Japan', 0],
-      ['Australia', 0],
-      ['Germany', 13],
-      ['Russia', 27],
-      ['China', 32],
-      ['Great Britain', 9],
-      ['United States', 37]
-    ],
-    2004: [
-      ['South Korea', 0],
-      ['Japan', 5],
-      ['Australia', 16],
-      ['Germany', 0],
-      ['Russia', 32],
-      ['China', 28],
-      ['Great Britain', 0],
-      ['United States', 36]
-    ],
-    2000: [
-      ['South Korea', 0],
-      ['Japan', 0],
-      ['Australia', 9],
-      ['Germany', 20],
-      ['Russia', 26],
-      ['China', 16],
-      ['Great Britain', 0],
-      ['United States', 44]
-    ]
-  };
-  
-  var data = {
-    2016: [
-      ['South Korea', 0],
-      ['Japan', 0],
-      ['Australia', 0],
-      ['Germany', 17],
-      ['Russia', 19],
-      ['China', 26],
-      ['Great Britain', 27],
-      ['United States', 46]
-    ],
-    2012: [
-      ['South Korea', 13],
-      ['Japan', 0],
-      ['Australia', 0],
-      ['Germany', 0],
-      ['Russia', 24],
-      ['China', 38],
-      ['Great Britain', 29],
-      ['United States', 46]
-    ],
-    2008: [
-      ['South Korea', 0],
-      ['Japan', 0],
-      ['Australia', 0],
-      ['Germany', 16],
-      ['Russia', 22],
-      ['China', 51],
-      ['Great Britain', 19],
-      ['United States', 36]
-    ],
-    2004: [
-      ['South Korea', 0],
-      ['Japan', 16],
-      ['Australia', 17],
-      ['Germany', 0],
-      ['Russia', 27],
-      ['China', 32],
-      ['Great Britain', 0],
-      ['United States', 37]
-    ],
-    2000: [
-      ['South Korea', 0],
-      ['Japan', 0],
-      ['Australia', 16],
-      ['Germany', 13],
-      ['Russia', 32],
-      ['China', 28],
-      ['Great Britain', 0],
-      ['United States', 36]
-    ]
-  };
-  
-  var countries = [{
-    name: 'South Korea',
-    flag: 197582,
-    color: 'rgb(201, 36, 39)'
-  }, {
-    name: 'Japan',
-    flag: 197604,
-    color: 'rgb(201, 36, 39)'
-  }, {
-    name: 'Australia',
-    flag: 197507,
-    color: 'rgb(0, 82, 180)'
-  }, {
-    name: 'Germany',
-    flag: 197571,
-    color: 'rgb(0, 0, 0)'
-  }, {
-    name: 'Russia',
-    flag: 197408,
-    color: 'rgb(240, 240, 240)'
-  }, {
-    name: 'China',
-    flag: 197375,
-    color: 'rgb(255, 217, 68)'
-  }, {
-    name: 'Great Britain',
-    flag: 197374,
-    color: 'rgb(0, 82, 180)'
-  }, {
-    name: 'United States',
-    flag: 197484,
-    color: 'rgb(215, 0, 38)'
-  }];
-  
-  
-  function getData(data) {
-    return data.map(function (country, i) {
-      return {
-        name: country[0],
-        y: country[1],
-        color: countries[i].color
-      };
-    });
-  }
-  
-  var chart = Highcharts.chart('container', {
-    chart: {
-      type: 'column'
-    },
-    title: {
-      text: 'Summer Olympics 2016 - Top 5 countries by Gold medals'
-    },
-    subtitle: {
-      text: 'Comparing to results from Summer Olympics 2012 - Source: <a href="https://en.wikipedia.org/wiki/2016_Summer_Olympics_medal_table">Wikipedia</a>'
-    },
-    plotOptions: {
-      series: {
-        grouping: false,
-        borderWidth: 0
-      }
-    },
-    legend: {
-      enabled: false
-    },
-    tooltip: {
-      shared: true,
-      headerFormat: '<span style="font-size: 15px">{point.point.name}</span><br/>',
-      pointFormat: '<span style="color:{point.color}">\u25CF</span> {series.name}: <b>{point.y} medals</b><br/>'
-    },
-    xAxis: {
-      type: 'category',
-      max: 4,
-      labels: {
-        useHTML: true,
-        animate: true,
-        formatter: function () {
-          var value = this.value,
-            output;
-  
-          countries.forEach(function (country) {
-            if (country.name === value) {
-              output = country.flag;
-            }
-          });
-  
-          return '<span><img src="https://image.flaticon.com/icons/svg/197/' + output + '.svg" style="width: 40px; height: 40px;"/><br></span>';
+      // Record the zipcode count if the accident is in the selected year
+      if(time.year === year) {
+        // Count the number of accidents by Zipcode
+        // If a new zipcode is found add it to the array along with default count
+        if(zipcodeAccidents.indexOf(zip) === -1) {
+          zipcodeAccidents.push(zip);
+          zipcodeAccidentCount[zipcodeAccidents.indexOf(zip)] = 0;
+        }
+        // Increment the accident count at the appropriate index
+        else if (zipcodeAccidents.indexOf(zip) > -1) {
+          zipcodeAccidentCount[zipcodeAccidents.indexOf(zip)] += 1;
         }
       }
-    },
-    yAxis: [{
-      title: {
-        text: 'Gold medals'
-      },
-      showFirstLabel: false
-    }],
-    series: [{
-      color: 'rgb(158, 159, 163)',
-      pointPlacement: -0.2,
-      linkedTo: 'main',
-      data: dataPrev[2016].slice(),
-      name: '2012'
-    }, {
-      name: '2016',
-      id: 'main',
-      dataSorting: {
-        enabled: true,
-        matchByName: true
-      },
-      dataLabels: [{
-        enabled: true,
-        inside: true,
-        style: {
-          fontSize: '16px'
-        }
-      }],
-      data: getData(data[2016]).slice()
-    }],
-    exporting: {
-      allowHTML: true
-    }
-  });
-  
-  var years = [2016, 2017, 2018, 2019];
-  
-  years.forEach(function (year) {
-    var btn = document.getElementById(year);
-  
-    btn.addEventListener('click', function () {
-  
-      document.querySelectorAll('.buttons button.active').forEach(function (active) {
-        active.className = '';
+           
+      // Only tabulate for selected year
+      if(time.year === year) {
+        // Increment the count for that hour
+        accidentHourCount[time.hour] += 1;
+      }
+      
+      // Add a new marker to the cluster group and bind a pop-up
+      markers.addLayer(L.marker([lat, lng])
+        .bindPopup(`<strong>${time.toLocaleString(DateTime.DATETIME_HUGE)}</strong><br>Weather: ${weather}<br>Description: ${description}</strong>`));
       });
-      btn.className = 'active';
+
+      // Add our marker cluster layer to the map
+      myMap.addLayer(markers);
+    
+      // Create Plotly Accident by hour figure    
+      // Plotly data
+
+      // Create hour labels for X Axis
+      let militaryTime = [];
+      for(let j = 0; j<24; j++) {
+        let timeLabel;
+        if(j < 10) {
+          timeLabel = `0${j}:00`;
+        }
+        else{
+          timeLabel = `${j}:00`;
+        }
+        militaryTime.push(timeLabel);
+      }
+
+      let trace = [
+      {
+        x: militaryTime,
+        y: accidentHourCount,
+        type: 'bar',
+        marker: {
+          // Orange
+          color: '#ff6a00',
+          }
+      }];
+
+      // Plotly layout
+      let layout = {
+        title: `Accident by Hour of Day ${year}`,
+        font:{
+          family: 'Raleway, sans-serif'
+        },
+        showlegend: false,
+        xaxis: {
+          title: "Hour (24-Hour Clock)",
+          dtick: 2
+        },
+        yaxis: {
+          title: "Total Accidents"
+        },
+        bargap :0.05,
+      };
+    
+      // Create plot at div
+      Plotly.newPlot('bar', trace, layout);
+      
+      // Create arrays to hold Census data
+      zipcodes = [];
+      medAge = [];
+      povertyRate = [];
+      accidentCount = [];
+    
+      // Use D3 to capture Census data from local Flask-Mongo API
+      d3.json("/api/v1.0/census").then(cdata => {
+ 
+        cdata.forEach(entry => {
+          if(entry.Year == year) {
+            zipcodes.push(entry.Zipcode);
+            medAge.push(entry.MedianAge);
+            povertyRate.push(entry.PovertyRate);
+            accidentCount.push(zipcodeAccidentCount[zipcodeAccidents.indexOf(Number(entry.Zipcode))]);
+          } 
+      })
   
-      chart.update({
+      // Highcharts section
+      // Accidents vs. Census Median Age
+      Highcharts.chart('container', {
+        chart: {
+          zoomType: 'xy'
+        },
         title: {
-          text: 'Summer Olympics ' + year + ' - Top 5 countries by Gold medals'
+          text: `Accident Counts to Median Age ${year}`
         },
         subtitle: {
-          text: 'Comparing to results from Summer Olympics ' + (year - 4) + ' - Source: <a href="https://en.wikipedia.org/wiki/' + (year) + '_Summer_Olympics_medal_table">Wikipedia</a>'
+          text: 'Source: Accident Data Set and Census by Portland Zipcode'
+        },
+        xAxis: [{
+          categories: zipcodes,
+          crosshair: true
+        }],
+        yAxis: [{ // Primary yAxis
+          labels: {
+            format: '{value}',
+            style: {
+            color: Highcharts.getOptions().colors[1]
+            }
+          },
+          title: {
+            text: 'Accident Count',
+            style: {
+              color: Highcharts.getOptions().colors[1]
+            }
+          }
+        }, { // Secondary yAxis
+          title: {
+            text: 'Median Age',
+            style: {
+                color: Highcharts.getOptions().colors[5]
+            }
+          },
+          labels: {
+            format: '{value}',
+            style: {
+              color: Highcharts.getOptions().colors[5]
+            }
+          },
+          opposite: true
+        }],
+        tooltip: {
+          shared: true
+        },
+        legend: {
+          layout: 'vertical',
+          align: 'left',
+          x: 120,
+          verticalAlign: 'top',
+          y: 50,
+          floating: true,
+          backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || // theme
+            'rgba(255,255,255,0.25)'
         },
         series: [{
-          name: year - 4,
-          data: dataPrev[year].slice()
-        }, {
-          name: year,
-          data: getData(data[year]).slice()
+          name: 'Median Age',
+          type: 'column',
+          yAxis: 1,
+          data: medAge,
+          color: Highcharts.getOptions().colors[5]
+          }
+        , {
+          name: 'Accident Count',
+          type: 'spline',
+          data: accidentCount,
+          color: Highcharts.getOptions().colors[1]
         }]
-      }, true, false, {
-        duration: 800
+      });
+
+      Highcharts.chart('container2', {
+        chart: {
+          zoomType: 'xy'
+        },
+        title: {
+          text: `Accident Counts to Poverty Rate ${year}`
+        },
+        subtitle: {
+          text: 'Source: Accident Data Set and Census by Portland Zipcode'
+        },
+        xAxis: [{
+          categories: zipcodes,
+          crosshair: true
+        }],
+        yAxis: [{ // Primary yAxis
+          labels: {
+            format: '{value}',
+            style: {
+            color: Highcharts.getOptions().colors[1]
+            }
+          },
+          title: {
+            text: 'Accident Count',
+            style: {
+            color: Highcharts.getOptions().colors[1]
+            }
+          }
+        }, { // Secondary yAxis
+          title: {
+            text: 'Poverty Rate',
+            style: {
+              color: Highcharts.getOptions().colors[5]
+            }
+          },
+          labels: {
+            format: '{value} %',
+            style: {
+              color: Highcharts.getOptions().colors[5]
+            }
+          },
+          opposite: true
+        }],
+        tooltip: {
+          shared: true
+        },
+        legend: {
+          layout: 'vertical',
+          align: 'left',
+          x: 120,
+          verticalAlign: 'top',
+          y: 50,
+          floating: true,
+          backgroundColor:
+          Highcharts.defaultOptions.legend.backgroundColor || // theme
+            'rgba(255,255,255,0.25)'
+        },
+        series: [{
+          name: 'Poverty Rate',
+          type: 'column',
+          yAxis: 1,
+          data: povertyRate,
+          color: Highcharts.getOptions().colors[5]
+        }
+        , {
+          name: 'Accident Count',
+          type: 'spline',
+          data: accidentCount,
+          color: Highcharts.getOptions().colors[1]
+        }]
       });
     });
-  }); 
-  
-*/
+  });
+}
+
+// Run the init script with the default year or whatever year is then selected
+init(year);
+
+
