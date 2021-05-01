@@ -39,15 +39,15 @@ Citing our visualization resources:
 - Bootstrap template : https://startbootstrap.com/previews/one-page-wonder
 - Luxon library : https://moment.github.io/luxon/
 
-Mongo Accident Data
+*Mongo Accident Data*
 
 ![Mongo Accidents](https://github.com/pulliam-chris/Project2/blob/main/images/Mongo_accidents.JPG)
 
-Mongo Census Data
+*Mongo Census Data*
 
 ![Mongo Census](https://github.com/pulliam-chris/Project2/blob/main/images/Mongo_census.JPG)
 
-API Endpoints
+*API Endpoints*
 
 ![API Endpoints](https://github.com/pulliam-chris/Project2/blob/main/images/API_endpoints.JPG)
 
