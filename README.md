@@ -37,10 +37,14 @@ https://gis-pdx.opendata.arcgis.com/datasets/neighborhood-boundaries?geometry=-1
 2) Clone this repository and pull down the files and folders 
 3) Go to the Kaggle website (link posted below) and download and save the US_Accidents_Dec20.csv to the Data folder
   https://www.kaggle.com/sobhanmoosavi/us-accidents
-5) Request a census.gov api key
-6) Create a config.js file and copy your API key to that file
-7) ** not sure how to retrieve and convert the census data**
+4) Request a census.gov api key
+5) Create a config.js file and copy your API key to that file
+6) ** not sure how to retrieve and convert the census data**
+7) Download MongoDB Compass
+  https://www.mongodb.com/try/download/compass
 8) Run the jupyter notebook
+9) Run the app.py file in your your terminal
+10) VOILA!!
 
 ### Census data 
  - See: https://github.com/datamade/census for library documentation
