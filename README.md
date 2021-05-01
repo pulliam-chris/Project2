@@ -18,12 +18,11 @@ The end result will show a story of the accident data across the rose city.
 
 US Accident Dataset (2016-2020, 4.2 million records) - initially we will likely parse down the dataset to cover 2019-2020 due to the volume of records.
 https://www.kaggle.com/sobhanmoosavi/us-accidents
-(Start Time
-End Time
-Start Lat Lng
-End Lat Lng
-Severity)
 
+- Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, and Rajiv Ramnath. “A Countrywide Traffic Accident Dataset.”, 2019.
+
+- Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teodorescu, and Rajiv Ramnath. "Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights." In proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, ACM, 2019.
+(Start Time End Time Start Lat Lng End Lat Lng Severity)
 
 Possible Geo JSON (neighborhood files)
 https://gis-pdx.opendata.arcgis.com/datasets/neighborhood-boundaries?geometry=-123.189%2C45.459%2C-122.146%2C45.627
