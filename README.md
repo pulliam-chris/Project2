@@ -42,11 +42,11 @@ https://gis-pdx.opendata.arcgis.com/datasets/neighborhood-boundaries?geometry=-1
 - Luxon library : https://moment.github.io/luxon/
 
 ### Importing data from Jupyter Notebook into MongoDB
-*Mongo Accident Data*
+*Accident Data*
 
 ![Mongo Accidents](https://github.com/pulliam-chris/Project2/blob/main/images/Mongo_accidents.JPG)
 
-*Mongo Census Data*
+*Census Data*
 
 ![Mongo Census](https://github.com/pulliam-chris/Project2/blob/main/images/Mongo_census.JPG)
 
