@@ -30,23 +30,26 @@ https://gis-pdx.opendata.arcgis.com/datasets/neighborhood-boundaries?geometry=-1
 
 # ______________________________________________
 
-# Portland MVA Project
+# Portland MVA Project 
 
-### Accident data
- - See: https://www.kaggle.com/sobhanmoosavi/us-accidents
- 
- -  Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, and Rajiv Ramnath. “A Countrywide Traffic Accident Dataset.”, 2019.
-
- -  Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teodorescu, and Rajiv Ramnath. "Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights." In proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, ACM, 2019.
+## To run this page, you must follow the steps below:
+1) Run the requirements.txt file to create the necessary enviromnent
+2) Clone this repository and pull down the files and folders 
+3) Go to the Kaggle website (link posted below) and download and save the US_Accidents_Dec20.csv to the Data folder
+  https://www.kaggle.com/sobhanmoosavi/us-accidents
+5) Request a census.gov api key
+6) Create a config.js file and copy your API key to that file
+7) ** not sure how to retrieve and convert the census data**
+8) Run the jupyter notebook
 
 ### Census data 
  - See: https://github.com/datamade/census for library documentation
  - See: https://gist.github.com/afhaque/60558290d6efd892351c4b64e5c01e9b for labels
 
 ### Citing our visualization resources:
-- Highcharts JS: https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/combo-dual-axes
+- Highcharts : https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/combo-dual-axes
 - Bootstrap template : https://startbootstrap.com/previews/one-page-wonder
-- Luxon JS (Datetime) library : https://moment.github.io/luxon/
+- Luxon library : https://moment.github.io/luxon/
 
 ### Importing data from Jupyter Notebook into MongoDB
 *Accident Data*
