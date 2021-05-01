@@ -41,10 +41,10 @@ https://gis-pdx.opendata.arcgis.com/datasets/neighborhood-boundaries?geometry=-1
 6) ** not sure how to retrieve and convert the census data**
 7) Download MongoDB Compass
   https://www.mongodb.com/try/download/compass
-8) Run the jupyter notebook
-9) Run the app.py file in your your terminal
-10) Request a mapbox api key for Leaflet ploting  https://account.mapbox.com/
-11) Add that API_KEY to a static/js/config.js file
+8) Run the accidents_data\accidents.ipynb jupyter notebook
+9) Request a mapbox api key for Leaflet ploting  https://account.mapbox.com/
+10) Add that API_KEY to a static/js/config.js file
+11) Run the app.py file in your your terminal to activate flask locally
 
 ### Census data 
  - See: https://github.com/datamade/census for library documentation
