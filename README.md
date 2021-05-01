@@ -64,6 +64,10 @@ https://gis-pdx.opendata.arcgis.com/datasets/neighborhood-boundaries?geometry=-1
 
 ![Mongo Census](https://github.com/pulliam-chris/Project2/blob/main/images/Mongo_census.JPG)
 
+*Your mongo database should look similar to the image below with the Database titled accidents_db and 2 collections within - One called accidents and one called census.
+
+
+
 *API Endpoints*
 
 ![API Endpoints](https://github.com/pulliam-chris/Project2/blob/main/images/API_endpoints.JPG)
