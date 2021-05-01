@@ -28,7 +28,7 @@ Severity)
 Possible Geo JSON (neighborhood files)
 https://gis-pdx.opendata.arcgis.com/datasets/neighborhood-boundaries?geometry=-123.189%2C45.459%2C-122.146%2C45.627
 
-#________________________________________________________________________________________________________________________________
+# ___________________________________________________________________________________________________________________________
 
 Census data 
  - See: https://github.com/datamade/census for library documentation
