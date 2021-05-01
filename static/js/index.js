@@ -80,7 +80,7 @@ let zipcodeAccidentCount =[];
       // Only tabulate for selected year
       if(time.year === year) {
         // Increment the count for that hour
-        console.log(year)
+        // console.log(year)
         accidentHourCount[time.hour] += 1;
       }
       
@@ -142,9 +142,10 @@ d3.json("/api/v1.0/census").then(cdata => {
  
   cdata.forEach(entry => {
     if(entry.Year == year) {
+      console.log(entry)
       zipcodes.push(entry.Zipcode);
-      medAge.push(entry.MedianAge);
-      povertyRate.push(entry.PovertyRate);
+      medAge.push(entry["Median Age"]);
+      povertyRate.push(entry["Poverty Rate"]);
       //console.log(new String(entry.Zipcode));
       //let myIndex = zipcodeAccidents.find(97267);
       accidentCount.push(zipcodeAccidentCount[zipcodeAccidents.indexOf(Number(entry.Zipcode))]);
@@ -242,6 +243,8 @@ Highcharts.chart('container', {
     //}
   }]
 });
+// console.log(medAge)
+// console.log(accidentCount)
 
 Highcharts.chart('container2', {
   chart: {
