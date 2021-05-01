@@ -46,7 +46,7 @@ https://gis-pdx.opendata.arcgis.com/datasets/neighborhood-boundaries?geometry=-1
 ### Citing our visualization resources:
 - Highcharts JS: https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/combo-dual-axes
 - Bootstrap template : https://startbootstrap.com/previews/one-page-wonder
-- Luxon JS library : https://moment.github.io/luxon/
+- Luxon JS (Datetime) library : https://moment.github.io/luxon/
 
 ### Importing data from Jupyter Notebook into MongoDB
 *Accident Data*
