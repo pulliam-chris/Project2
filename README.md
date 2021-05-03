@@ -78,7 +78,9 @@ https://gis-pdx.opendata.arcgis.com/datasets/neighborhood-boundaries?geometry=-1
 ![API Endpoints](https://github.com/pulliam-chris/Project2/blob/main/images/API_endpoints.JPG)
 
 *Final Site*
+
 ![Final Site Top](https://github.com/pulliam-chris/Project2/blob/main/images/FinalSite_top.JPG)
+
 ![Final Site Bottom](https://github.com/pulliam-chris/Project2/blob/main/images/FinalSite_bottom.JPG)
 
 
