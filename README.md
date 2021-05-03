@@ -36,15 +36,16 @@ https://gis-pdx.opendata.arcgis.com/datasets/neighborhood-boundaries?geometry=-1
 2) Clone this repository and pull down the files and folders 
 3) Go to the Kaggle website (link posted below) and download and save the US_Accidents_Dec20.csv to the accident_data\data folder
   https://www.kaggle.com/sobhanmoosavi/us-accidents
+*** (This section can be completed but is discretionary since the Census JSON data file is present in the repository.)
 4) Request a census.gov api key
 5) Create a config.py file and copy your API key to that file
-6) ** not sure how to retrieve and convert the census data**
-7) Download MongoDB Compass
+*** (If no changes are desired jump to MongoDB download)
+6) Download MongoDB Compass
   https://www.mongodb.com/try/download/compass
-8) Run the accidents_data\accidents.ipynb jupyter notebook
-9) Request a mapbox api key for Leaflet ploting  https://account.mapbox.com/
-10) Add that API_KEY to a static/js/config.js file
-11) Run the app.py file in your your terminal to activate flask locally
+7) Run the accidents_data\accidents.ipynb jupyter notebook
+8) Request a mapbox api key for Leaflet ploting  https://account.mapbox.com/
+9) Add that API_KEY to a static/js/config.js file
+10) Run the app.py file in your your terminal to activate flask locally
 
 ### Census data 
  - See: https://github.com/datamade/census for library documentation
